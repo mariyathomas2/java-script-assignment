@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Template Literals Example</title>
+</head>
+<body>
+    <h2>Greeting Message Using Template Literals</h2>
+
+    <button onclick="showMessage()">Show Message</button>
+
+    <p id="result"></p>
+
+    <script>
+        function showMessage() {
+            const name = "Alice";
+
+            // Using template literal instead of string concatenation
+            const msg = `Hello ${name}, welcome!`;
+
+            document.getElementById("result").textContent = msg;
+        }
+    </script>
+</body>
+</html>

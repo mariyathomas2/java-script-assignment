@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrow Function Example</title>
+</head>
+<body>
+    <h2>Greeting with Arrow Function</h2>
+
+    <label for="nameInput">Enter your name:</label><br>
+    <input type="text" id="nameInput" placeholder="e.g. Alice"><br><br>
+
+    <button onclick="showGreeting()">Greet</button>
+
+    <p id="result"></p>
+
+    <script>
+        // Arrow function version of greet
+        const greet = name => `Hello, ${name}`;
+
+        function showGreeting() {
+            const name = document.getElementById("nameInput").value.trim();
+
+            if (name === "") {
+                document.getElementById("result").textContent = "Please enter a name.";
+                return;
+            }
+
+            const message = greet(name);
+            document.getElementById("result").textContent = message;
+        }
+    </script>
+</body>
+</html>

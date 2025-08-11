@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sum Array with User Input</title>
+</head>
+<body>
+
+  <h1>Calculate Sum of Numbers</h1>
+
+  <label for="numbers">Enter numbers separated by commas:</label><br />
+  <input type="text" id="numbers" placeholder="e.g. 5, 10, 15" size="30" />
+  <button onclick="calculateSum()">Calculate Sum</button>
+
+  <p id="result"></p>
+
+  <script>
+    function sumArray(numbers) {
+      let sum = 0;
+      for (let num of numbers) {
+        sum += num;
+      }
+      return sum;
+    }
+
+    function calculateSum() {
+      const input = document.getElementById('numbers').value;
+      const numberStrings = input.split(',');
+      const numberArray = numberStrings
+        .map(str => str.trim())
+        .filter(str => str !== '')
+        .map(Number);
+
+      if (numberArray.some(isNaN)) {
+        document.getElementById('result').textContent = 'Please enter valid numbers only.';
+        return;
+      }
+
+      const sum = sumArray(numberArray);
+      document.getElementById('result').textContent = `Sum: ${sum}`;
+    }
+  </script>
+
+</body>
+</html>
